@@ -1,0 +1,68 @@
+<div class="wrapper">
+  <mat-card class="card">
+    <!-- title  -->
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+      <div>
+        <H3>의사결정</H3>
+      </div>
+    </mat-card-title>
+    <!-- content  -->
+    <mat-card-content>
+      <div class="filter">
+        <!-- 상위 selections  -->
+          <!-- select1  -->
+        <mat-form-field>
+          <mat-label>CCTV</mat-label>
+          <mat-select>
+            <mat-option id="input1" *ngFor="let sel of selects1" [value]="sel">
+              {{sel}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+          <!-- select2  -->
+        <mat-form-field>
+          <mat-label>전체</mat-label>
+          <mat-select>
+            <mat-option id="input2" *ngFor="let sel of selects2" [value]="sel">
+              {{sel}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+          <!-- input  -->
+        <mat-form-field>
+          <mat-label>자산명 입력</mat-label>
+          <input id="input3" matInput placeholder="온양2동금동부동산앞" value="">
+        </mat-form-field>
+        <!-- 상위 selections buttons  -->
+        <button mat-raised-button color="primary">검색</button>&nbsp;
+        <button mat-raised-button>엑셀로 내보내기</button>
+        <!-- 상위 selections closed -->
+      </div>
+      <!-- list table start -->
+      <div>
+        <mat-table [dataSource]="assets">
+          <ng-container matColumnDef="subLayer">
+            <mat-header-cell *matHeaderCellDef>서브레이어</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center" (click)="goGetDetail(element)">{{element.subLayer}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="assetName">
+            <mat-header-cell *matHeaderCellDef>자산명</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center" (click)="goGetDetail(element)">{{element.assetName}}</mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef>주소</mat-header-cell>
+            <mat-cell *matCellDef="let element" class="column-center" (click)="goGetDetail(element)">{{element.address}}</mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+
+        <div *ngIf="assets.length === 0" class="no-content">
+          등록된 게시글이 없습니다.
+        </div>
+      </div>
+      <!-- list table closed -->
+    </mat-card-content>
+  </mat-card>
+</div>

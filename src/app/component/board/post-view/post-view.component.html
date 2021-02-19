@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title>의사결정 상세</mat-card-title>
+  <mat-card-content>
+    <mat-list *ngIf="data" class="list-class">
+      <mat-list-item>
+        <mat-icon matListIcon>title</mat-icon>
+        <div matLine>식별번호: {{data['serialNum']}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>자산이름: {{data['assetName']}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>서브레이어: {{data['subLayer']}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>주소: {{data['address']}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>모델명: {{data['model']}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>설치일자: {{data['createdAt']}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div matLine>비고: {{data['etc']}}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+<div class="button">
+  <button mat-stroked-button color="primary" (click)="goAssetList()">뒤로가기</button>
+  <button mat-raised-button color="primary">수정</button>
+</div>

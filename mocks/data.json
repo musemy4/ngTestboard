@@ -1,0 +1,119 @@
+[
+  {
+    "subLayer":"어린이보호",
+    "createdAt": "1992-01-26",
+    "serialNum": "c1",
+    "assetName": "용화제2근린공원",
+    "address": "충청남도 아산시 둔포면",
+    "model": "",
+    "etc": ""
+  },
+  {
+  "subLayer":"도시공원",
+  "createdAt": "2020-01-26",
+  "serialNum": "c2",
+  "assetName": "월량초통학로고정4",
+  "address":"충청남도 아산시 음봉면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"방범",
+  "createdAt": "2020-01-26",
+  "serialNum": "c3",
+  "assetName": "신남마을입구_고정2",
+  "address":"충청남도 아산시 음봉면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"어린이보호",
+  "createdAt": "2020-01-26",
+  "serialNum": "c4",
+  "assetName": "월량초통학로고정4",
+  "address":"충청남도 아산시 음봉면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"쓰레기",
+  "createdAt": "2020-01-26",
+  "serialNum": "c5",
+  "assetName": "월량초통학로고정4",
+  "address":"충청남도 아산시 음봉면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"방범",
+  "createdAt": "2020-01-26",
+  "serialNum": "c6",
+  "assetName": "휴먼시아4단지뒷편",
+  "address":"충청남도 아산시 배방읍",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"방범",
+  "createdAt": "2020-01-26",
+  "serialNum": "c7",
+  "assetName": "배방초정문_회전_자가망",
+  "address":"충청남도 아산시 배방읍",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"어린이보호",
+  "createdAt": "2020-01-26",
+  "serialNum": "c8",
+  "assetName": "둔포4리초콜릿PC방앞",
+  "address":"충청남도 아산시 둔포면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"어린이보호",
+  "createdAt": "2020-01-26",
+  "serialNum": "c9",
+  "assetName": "모종동_보훈회관_앞",
+  "address":"충청남도 아산시 모종동",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"쓰레기",
+  "createdAt": "2020-01-26",
+  "serialNum": "c10",
+  "assetName": "염치읍염성-염성리2구경로당",
+  "address":"충청남도 아산시 염성리",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"쓰레기",
+  "createdAt": "2020-01-26",
+  "serialNum": "c11",
+  "assetName": "월량초통학로고정4",
+  "address":"아산시 음봉면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"어린이보호",
+  "createdAt": "2020-01-26",
+  "serialNum": "c12",
+  "assetName": "월량초통학로고정4",
+  "address":"아산시 음봉면",
+  "model":"",
+  "etc":""
+  },
+  {
+  "subLayer":"도시공원",
+  "createdAt": "2020-01-26",
+  "serialNum": "c13",
+  "assetName": "월량초통학로고정4",
+  "address":"아산시 음봉면",
+  "model":"",
+  "etc":""
+  }
+]
