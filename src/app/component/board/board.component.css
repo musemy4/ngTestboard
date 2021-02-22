@@ -2,7 +2,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-
   overflow: auto;
 }
 
@@ -40,13 +39,17 @@ mat-row:hover {
 }
 
 mat-form-field{
-  margin:30px;
+  margin:50px;
+
 }
 
 mat-paginator{
-  margin-top:50px;
+  margin-top:60px;
 }
 
+mat-card{
+  height:800px;
+}
 .filter {
   text-align: center;
   margin-left: 5%;

@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms'; //
 import { HttpClientModule } from '@angular/common/http';
 import { PostViewComponent } from './component/board/post-view/post-view.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,//
     ReactiveFormsModule,//
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
 
   ],
   exports: [

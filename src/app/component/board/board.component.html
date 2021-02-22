@@ -40,7 +40,7 @@
       </div>
       <!-- list table start -->
       <div>
-        <mat-table [dataSource]="assets">
+        <mat-table [dataSource]="dataSource">
           <ng-container matColumnDef="subLayer">
             <mat-header-cell *matHeaderCellDef>서브레이어</mat-header-cell>
             <mat-cell *matCellDef="let element" class="column-center" (click)="goGetDetail(element)">{{element.subLayer}}</mat-cell>
@@ -64,5 +64,13 @@
       </div>
       <!-- list table closed -->
     </mat-card-content>
+    <mat-paginator #paginator
+                    [length]="length"
+                   [pageSize]="pageSize"
+                   [showFirstLastButtons]="true"
+    (page)="handlePage($event)">
+<!--                   [pageSizeOptions]="[5, 10]"-->
+
+    </mat-paginator>
   </mat-card>
 </div>

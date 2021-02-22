@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from 'src/app/model/board/Post';
 
 import { Asset } from '../../model/board/Asset';
@@ -8,6 +8,7 @@ import { HttpErrorResponse} from '@angular/common/http';
 
 import dummyJson from '../../../../mocks/data.json';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
@@ -22,19 +23,41 @@ export class BoardComponent implements OnInit {
   input2Control= new FormControl('');
   input3Control= new FormControl('');
 
-
-
   displayedColumns: string[] = ['subLayer', 'assetName', 'address'];
+  assets: Asset[] = dummyJson; //이것그대로 출력됨? 필터링 거치게 하자
+  dataSource: any;
+  length: number = 10; //초기값
+  pageSize: number = 7;
+  currentPage: number = 1;
+  // @ts-ignore
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
+  iterator(){
+    const end = (this.currentPage + 1) * this.pageSize;
+    const start = this.currentPage * this.pageSize;
+    const part = this.assets.slice(start, end);
+    this.dataSource = part;
+  }
+
+  handlePage(e: any){
+    this.currentPage = e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.iterator();
+  }
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private httpService: HttpClient
   ){
+    this.length = this.assets.length;
+    this.iterator();
+
     this.route.paramMap.subscribe((params)=>{
       this.route.queryParams.subscribe((queryParams)=>{
         const url = typeof (queryParams.param) === 'string' ? JSON.parse(queryParams.param): queryParams;
-        console.log(url.nextUrl+"***");
+        console.log(url.nextUrl+"***"); //바로 된 페이지이면 undefined 나옴
         this.backUrl = url.nextUrl;
         if(this.backUrl!== undefined){
           const paramArr = this.backUrl.split(',');
@@ -70,7 +93,6 @@ export class BoardComponent implements OnInit {
   ];
 
 
-  assets: Asset[] = dummyJson; //이것그대로 출력됨? 필터링 거치게 하자
 
   ngOnInit () {
   }
