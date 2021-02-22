@@ -1,1 +1,40 @@
-<p>signup works!</p>
+<div class="wrapper">
+  <mat-card>
+    <mat-card-title>회원가입</mat-card-title>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit(signUpForm.value)">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Email"  [formControl]="id">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password"  [formControl]="password">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="password" matInput placeholder="Confirm Password" [formControl]="password_re">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" [formControl]="name">
+        </mat-form-field>
+      </p>
+      <!-- 유효성 검증이 안됐을시 표시-->
+      <p *ngIf="id.hasError('required') && id.touched" class="error"> Email is required </p>
+      <p *ngIf="password.hasError('required') && password.touched" class="error"> Password is required </p>
+      <p *ngIf="password.hasError('invalidSku') && password.touched" class="error"> Password must begin with <span>@</span> </p>
+      <p *ngIf="password_re.hasError('required') && password_re.touched" class="error"> Confirm Password is required </p>
+      <p *ngIf="password_re.hasError('notSame') && password_re.touched" class="error"> Confirm Password is different with password</p>
+
+
+      <div class="button">
+<!--         [disabled]="!signUpForm.valid"-->
+        <button mat-raised-button routerLink="/">안한다</button>
+        <button type="submit" mat-raised-button color="primary">가입</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

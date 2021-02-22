@@ -1,10 +1,12 @@
 [
   {
-    "id": "test1",
-    "pw": "1234"
+    "id": "test13@innodep.com",
+    "password": "@1234",
+    "name": "test13"
   },
   {
-    "id": "test4",
-    "pw": "1234"
+    "id": "test42@innodep.com",
+    "password": "@1234",
+    "name": "test42"
   }
 ]

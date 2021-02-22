@@ -2,30 +2,29 @@
   <mat-card>
     <mat-card-title>로그인</mat-card-title>
     <mat-card-content>
-      <form [formGroup]="signInForm" (ngSubmit)="submit()">
+      <form [formGroup]="signInForm" (ngSubmit)="submit(signInForm.value)">
         <p>
+          <img>
+          <!-- src:'test/a1.jpg' [src]= "'test/a1.jpg'"         -->
           <mat-form-field>
-            <input type="text" matInput placeholder="Id" formControlName="id">
+            <input type="text" matInput placeholder="Id" [formControl]="id">
           </mat-form-field>
         </p>
         <p>
           <mat-form-field>
-            <input type="password" matInput placeholder="Password" formControlName="password">
+            <input type="password" matInput placeholder="Password" [formControl]="password">
           </mat-form-field>
         </p>
-<!--        <p *ngIf="id.touched && id.invalid && id.errors.required" class="error">-->
-<!--          Id is required-->
-<!--        </p>-->
-<!--        <p *ngIf="id.touched && id.invalid && id.errors.email" class="error">-->
-<!--          Please enter valid email-->
-<!--        </p>-->
-<!--        <p *ngIf="password.touched && password.invalid && password.errors.required" class="error">-->
-<!--          Password is required-->
-<!--        </p>-->
+        <!-- 유효성 검증이 안됐을시 표시-->
+        <p *ngIf="id.invalid && id.touched" class="error"> Id is invalid </p>
+        <p *ngIf="id.hasError('required') && id.touched" class="error"> Id is required </p>
+        <p *ngIf="password.invalid && password.touched" class="error"> Password is invalid </p>
+        <p *ngIf="password.hasError('required') && password.touched" class="error"> Password is required </p>
+        <p *ngIf="password.hasError('invalidSku') && password.touched" class="error"> Password must begin with <span>@</span> </p>
 
         <div class="button">
           <button type="submit" mat-stroked-button [disabled]="!signInForm.valid">Login</button>
-          <button mat-raised-button color="primary">SignUp</button>
+          <button mat-raised-button color="primary" routerLink="/signup">SignUp</button>
         </div>
       </form>
     </mat-card-content>

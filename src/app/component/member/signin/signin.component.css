@@ -24,6 +24,14 @@
   background-color: red;
 }
 
+  /* 폼 성공 표시 관련 스타일 지정 */
+.success {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: green;
+}
+
 /* 버튼 스타일 지정 */
 .button {
   display: flex;
