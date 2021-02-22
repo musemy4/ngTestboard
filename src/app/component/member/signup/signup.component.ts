@@ -21,6 +21,7 @@ export const checkPassword: ValidatorFn = ( control: AbstractControl) : Validati
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
   redirectTo: string = "";
   signUpForm: FormGroup;

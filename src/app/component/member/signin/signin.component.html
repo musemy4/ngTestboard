@@ -20,8 +20,8 @@
         <p *ngIf="id.hasError('required') && id.touched" class="error"> Id is required </p>
         <p *ngIf="password.invalid && password.touched" class="error"> Password is invalid </p>
         <p *ngIf="password.hasError('required') && password.touched" class="error"> Password is required </p>
-        <p *ngIf="password.hasError('invalidSku')" class="error"> Password must begin with <span>@</span> </p>
-        <p *ngIf="signInForm.invalid" class="error">Form invalid</p>
+        <p *ngIf="password.hasError('invalidSku') && password.touched" class="error"> Password must begin with <span>@</span> </p>
+        <p *ngIf="signInForm.invalid && signInForm.touched" class="error">Form invalid</p>
 
         <div class="button">
           <button type="submit" mat-stroked-button [disabled]="!signInForm.valid">Login</button>

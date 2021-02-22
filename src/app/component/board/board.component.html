@@ -13,28 +13,28 @@
           <!-- select1  -->
         <mat-form-field>
           <mat-label>CCTV</mat-label>
-          <mat-select>
-            <mat-option id="input1" *ngFor="let sel of selects1" [value]="sel">
-              {{sel}}
+          <mat-select [formControl]="input1Control">
+            <mat-option id="input1" *ngFor="let input of inputs1" value="{{input}}">
+              {{input}}
             </mat-option>
           </mat-select>
         </mat-form-field>
           <!-- select2  -->
         <mat-form-field>
           <mat-label>전체</mat-label>
-          <mat-select>
-            <mat-option id="input2" *ngFor="let sel of selects2" [value]="sel">
-              {{sel}}
+          <mat-select [formControl]="input2Control">
+            <mat-option id="input2" *ngFor="let input of inputs2" value="{{input}}">
+              {{input}}
             </mat-option>
           </mat-select>
         </mat-form-field>
           <!-- input  -->
         <mat-form-field>
           <mat-label>자산명 입력</mat-label>
-          <input id="input3" matInput placeholder="온양2동금동부동산앞" value="">
+          <input id="input3" matInput placeholder="온양2동금동부동산앞" [formControl]="input3Control">
         </mat-form-field>
         <!-- 상위 selections buttons  -->
-        <button mat-raised-button color="primary">검색</button>&nbsp;
+        <button mat-raised-button color="primary" (click)="getAssetList(1)">검색</button>&nbsp;
         <button mat-raised-button>엑셀로 내보내기</button>
         <!-- 상위 selections closed -->
       </div>

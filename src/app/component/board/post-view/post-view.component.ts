@@ -37,7 +37,6 @@ export class PostViewComponent implements OnInit {
     console.log("***: "+this.backUrl);
     //****: [object Object] 컴포넌트 자체를 의미?
     console.log("****: "+this);
-
   }
 
   getDataDetail(): void{
