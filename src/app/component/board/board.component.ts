@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit {
   dataSource: any;
   length: number = 10; //초기값
   pageSize: number = 7;
-  currentPage: number = 1;
+  currentPage: number = 0;
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -51,8 +51,15 @@ export class BoardComponent implements OnInit {
     private route: ActivatedRoute,
     private httpService: HttpClient
   ){
-    this.length = this.assets.length;
-    this.iterator();
+    //맨처음에 버튼 누르면 안넘어간다?? => ngOninit()에 넣었더니 됨
+    this.dataSource = this.assets;
+    this.length = this.dataSource.length;
+
+
+    // 변경내용 주시하기. eventEmitter(Observable)
+    this.input1Control.valueChanges.subscribe((value: string) =>{
+      this.getAssetList(1);
+    })
 
     this.route.paramMap.subscribe((params)=>{
       this.route.queryParams.subscribe((queryParams)=>{
@@ -84,7 +91,7 @@ export class BoardComponent implements OnInit {
   }
 
   inputs1: string[] =[
-    '시군구경계', '읍면동경계', '행정동경계', '보건소', '학교', '경찰서',
+    '방범', '시군구경계', '읍면동경계', '행정동경계', '보건소', '학교', '경찰서',
     'point_테스트01', 'line_테스트01', 'polygon_테스트01', 'cctv_테스트01'
   ];
 
@@ -95,6 +102,7 @@ export class BoardComponent implements OnInit {
 
 
   ngOnInit () {
+    this.iterator();
   }
 
 
@@ -108,7 +116,6 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  // 변경내용 주시하기. eventEmitter(Observable)
 
 
   getAssetList(page: number){
@@ -119,6 +126,11 @@ export class BoardComponent implements OnInit {
     if (input1 === '' && input2 === '' && input3 ==='') this.assets = dummyJson;
     else {
         console.log("필터링 대상이 있다!");
+        if(input1 !==''){
+          console.log(input1 + "===");
+          // this.dataSource = this.assets.find(dummy => dummy.subLayer === input1); //find: undefined가 뜰수도 있음
+          this.dataSource = this.assets.filter(dummy => dummy.subLayer === input1);
+        }
     }
   }
 

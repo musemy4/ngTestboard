@@ -108,7 +108,7 @@
   "etc":""
   },
   {
-  "subLayer":"도시공원",
+  "subLayer":"학교",
   "createdAt": "2020-01-26",
   "serialNum": "c13",
   "assetName": "월량초통학로고정4",
@@ -117,7 +117,7 @@
   "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"경찰서",
     "createdAt": "2020-01-26",
     "serialNum": "c14",
     "assetName": "월량초통학로고정4",
@@ -126,7 +126,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"행정동경계",
     "createdAt": "2020-01-26",
     "serialNum": "c15",
     "assetName": "월량초통학로고정4",
@@ -135,7 +135,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"읍면동경계",
     "createdAt": "2020-01-26",
     "serialNum": "c16",
     "assetName": "월량초통학로고정4",
@@ -189,7 +189,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"어린이보호",
     "createdAt": "2020-01-26",
     "serialNum": "c22",
     "assetName": "월량초통학로고정4",
@@ -198,7 +198,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"쓰레기",
     "createdAt": "2020-01-26",
     "serialNum": "c23",
     "assetName": "월량초통학로고정4",
@@ -207,7 +207,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"보건소",
     "createdAt": "2020-01-26",
     "serialNum": "c24",
     "assetName": "월량초통학로고정4",
@@ -216,7 +216,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"학교",
     "createdAt": "2020-01-26",
     "serialNum": "c25",
     "assetName": "월량초통학로고정4",
@@ -234,7 +234,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"point_테스트01",
     "createdAt": "2020-01-26",
     "serialNum": "c27",
     "assetName": "월량초통학로고정4",
@@ -243,7 +243,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"cctv_테스트01",
     "createdAt": "2020-01-26",
     "serialNum": "c28",
     "assetName": "월량초통학로고정4",
@@ -270,7 +270,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"학교",
     "createdAt": "2020-01-26",
     "serialNum": "c31",
     "assetName": "월량초통학로고정4",
@@ -279,7 +279,7 @@
     "etc":""
   },
   {
-    "subLayer":"도시공원",
+    "subLayer":"cctv_테스트01",
     "createdAt": "2020-01-26",
     "serialNum": "c32",
     "assetName": "월량초통학로고정4",
