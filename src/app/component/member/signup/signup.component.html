@@ -23,17 +23,19 @@
         </mat-form-field>
       </p>
       <!-- 유효성 검증이 안됐을시 표시-->
+      <p *ngIf="id.invalid && id.touched" class="error">U must enter email formation</p>
       <p *ngIf="id.hasError('required') && id.touched" class="error"> Email is required </p>
       <p *ngIf="password.hasError('required') && password.touched" class="error"> Password is required </p>
       <p *ngIf="password.hasError('invalidSku') && password.touched" class="error"> Password must begin with <span>@</span> </p>
       <p *ngIf="password_re.hasError('required') && password_re.touched" class="error"> Confirm Password is required </p>
-      <p *ngIf="password_re.hasError('notSame') && password_re.touched" class="error"> Confirm Password is different with password</p>
-
+      <p *ngIf="name.hasError('required') && name.touched" class="error"> name is required</p>
+      <p *ngIf="signUpForm.errors?.notSame" class="error">Password not same from Confirm Password</p>
+      <p *ngIf="signUpForm.invalid && signUpForm.touched" class="error">Form invalid</p>
 
       <div class="button">
 <!--         [disabled]="!signUpForm.valid"-->
         <button mat-raised-button routerLink="/">안한다</button>
-        <button type="submit" mat-raised-button color="primary">가입</button>
+        <button type="submit" mat-raised-button color="primary"  mat-stroked-button [disabled]="!signUpForm.valid">가입</button>
       </div>
     </form>
   </mat-card>
