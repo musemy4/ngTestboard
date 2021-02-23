@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-// @ts-ignore
 // 연습용이라지. @로시작하게끔
 function skuValidator(control: FormControl): {[s: string]: boolean} {
-  if(!control.value.match(/^@/)){
+  if(!control.value.match(/^@/)){ // 정규식
     return {invalidSku: true};
   }
+  return {};
 }
 
 export const checkPassword: ValidatorFn = ( control: AbstractControl) : ValidationErrors | null => {
@@ -25,6 +25,7 @@ export const checkPassword: ValidatorFn = ( control: AbstractControl) : Validati
 export class SignupComponent implements OnInit {
   redirectTo: string = "";
   signUpForm: FormGroup;
+  // get id() { return this.signUpForm.get('id'); }
   id: AbstractControl;
   password: AbstractControl;
   password_re: AbstractControl;

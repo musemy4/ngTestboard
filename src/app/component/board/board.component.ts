@@ -4,12 +4,11 @@ import { Post } from 'src/app/model/board/Post';
 import { Asset } from '../../model/board/Asset';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { HttpErrorResponse} from '@angular/common/http';
 
 import dummyJson from '../../../../mocks/data.json';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-
+import { BoardService } from '../../services/board.service';
 
 @Component({
   selector: 'app-board',
@@ -26,9 +25,10 @@ export class BoardComponent implements OnInit {
   displayedColumns: string[] = ['subLayer', 'assetName', 'address'];
   assets: Asset[] = dummyJson; //이것그대로 출력됨? 필터링 거치게 하자
   dataSource: any;
-  length: number = 10; //초기값
+  length: number = 0; //초기값
   pageSize: number = 7;
   currentPage: number = 0;
+
   // @ts-ignore
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -49,16 +49,16 @@ export class BoardComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private httpService: HttpClient
+    private boardService: BoardService
   ){
     //맨처음에 버튼 누르면 안넘어간다?? => ngOninit()에 넣었더니 됨
     this.dataSource = this.assets;
     this.length = this.dataSource.length;
 
 
-    // 변경내용 주시하기. eventEmitter(Observable)
+    // 변경내용 주시하기*. eventEmitter(Observable)
     this.input1Control.valueChanges.subscribe((value: string) =>{
-      this.getAssetList(1);
+      this.getAssetList(value);
     })
 
     this.route.paramMap.subscribe((params)=>{
@@ -83,6 +83,8 @@ export class BoardComponent implements OnInit {
               case 2:
                 this.input3Control.setValue(value[1]);
                 break;
+              default:
+                break;
             }
           }
         }
@@ -99,10 +101,21 @@ export class BoardComponent implements OnInit {
     '어린이보호', '방범', '스쿨존', '도시공원', '쓰레기', '산불감시'
   ];
 
-
+  getLayerList() {
+    this.boardService.get().subscribe(response => { console.log(response)});
+  }
 
   ngOnInit () {
-    this.iterator();
+    // this.boardService.getBoard({
+    //   count: 10,
+    //   page: 1
+    // }).subscribe((result) => {
+    //     console.log(result);
+    //   })
+
+    this.getLayerList();
+    // this.iterator();
+    //
   }
 
 
@@ -118,10 +131,10 @@ export class BoardComponent implements OnInit {
 
 
 
-  getAssetList(page: number){
-    let input1 = this.input1Control.value;
-    let input2 = this.input2Control.value;
-    let input3 = this.input3Control.value;
+  getAssetList(value: string){
+    const input1 = value;
+    const input2 = this.input2Control.value;
+    const input3 = this.input3Control.value;
 
     if (input1 === '' && input2 === '' && input3 ==='') this.assets = dummyJson;
     else {
