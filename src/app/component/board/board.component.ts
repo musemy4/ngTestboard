@@ -106,12 +106,6 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit () {
-    // this.boardService.getBoard({
-    //   count: 10,
-    //   page: 1
-    // }).subscribe((result) => {
-    //     console.log(result);
-    //   })
 
     this.getLayerList();
     // this.iterator();
